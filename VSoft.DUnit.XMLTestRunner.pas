@@ -28,35 +28,11 @@
 //  so that it can be used with FinalBuilder and Continua CI.
 unit VSoft.DUnit.XMLTestRunner;
 
-{$IFDEF VER210} // RAD Studio 2010
-  {$DEFINE DELPHI_2010}
-  {$DEFINE DELPHI_2010_UP}
-{$ENDIF VER210}
-
-{$IFDEF VER220} // RAD Studio XE
-  {$DEFINE DELPHI_2010_UP}
-  {$DEFINE DELPHI_XE}
-  {$DEFINE DELPHI_XE_UP}
-  {$UNDEF UNSUPPORTED_COMPILER_VERSION}
-{$ENDIF VER220}
-
-{$IFDEF VER230} // RAD Studio XE2
-  {$DEFINE DELPHI_2010_UP}
-  {$DEFINE DELPHI_XE_UP}
-  {$DEFINE DELPHI_XE2}
-  {$DEFINE DELPHI_XE2_UP}
-  {$UNDEF UNSUPPORTED_COMPILER_VERSION}
-{$ENDIF VER230}
-
-{$IFDEF VER240} // RAD Studio XE3
-  {$DEFINE DELPHI_2010_UP}
-  {$DEFINE DELPHI_XE_UP}
-  {$DEFINE DELPHI_XE2}
-  {$DEFINE DELPHI_XE2_UP}
-  {$DEFINE DELPHI_XE3}
-  {$DEFINE DELPHI_XE3_UP}
-{$ENDIF VER230}
-
+{$IFDEF CONDITIONALEXPRESSIONS} // Delphi 6 or later
+  {$IF RtlVersion >= 23.0} // XE2
+    {$DEFINE FORMATSETTINGS}  // Change where Format accepts TFormatSettings as Param
+  {$IFEND}
+{$ENDIF}
 
 interface
 uses
@@ -93,14 +69,13 @@ type
     FErrorCount : integer;
     FFailureCount : integer;
 
-    {$IFDEF DELPHI_XE2_UP}
+    {$IFDEF FORMATSETTINGS}
     FFormatSettings : TFormatSettings;
     {$ENDIF}
 
     procedure PushSuite(const suiteElement, resultsElement : IXMLDOMElement; const name : string);
     procedure PopSuite(var suiteElement, resultsElement : IXMLDOMElement; var name : string );
     function CurrentSuiteElement : IXMLDOMElement;
-    function CurrentSuiteName : string;
 
     function CurrentResultsElement : IXMLDOMElement;
   protected
@@ -234,7 +209,7 @@ var
   pi : IXMLDOMProcessingInstruction;
 begin
    inherited Create;
-   {$IFDEF DELPHI_XE2_UP}
+   {$IFDEF FORMATSETTINGS}
    FFormatSettings := TFormatSettings.Create('en-US');
    {$ENDIF}
 
@@ -268,11 +243,6 @@ begin
   result := TSuiteData(FSuiteDataStack.Items[0]).SuiteElement;
 end;
 
-function TXMLTestListener.CurrentSuiteName: string;
-begin
-  Assert(FSuiteDataStack.Count > 0);
-  result := TSuiteData(FSuiteDataStack.Items[0]).Name;
-end;
 
 const
   TrueFalse : array[Boolean] of string = ('False', 'True');
@@ -368,10 +338,12 @@ begin
 end;
 
 function TXMLTestListener.FormatNUnitTime(const value: Extended): string;
+{$IFNDEF FORMATSETTINGS}
 var
   oldDecimalSeparator : Char;
+{$ENDIF}
 begin
-{$IFDEF DELPHI_XE2_UP}
+{$IFDEF FORMATSETTINGS}
   result := Format('%1.3f',[value],FFormatSettings);
 {$ELSE}
   oldDecimalSeparator := SysUtils.DecimalSeparator;
