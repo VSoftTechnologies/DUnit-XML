@@ -27,9 +27,11 @@ var
 {$EndIf}
 
 {$IFDEF ISCONSOLE}
+{$IFNDEF XMLOUTPUT}
 var
   ExitBehavior: TRunnerExitBehavior;
-{$EndIf}
+{$ENDIF XMLOUTPUT}
+{$ENDIF ISCONSOLE}
 
 begin
   {$IfDef ISCONSOLE}
