@@ -225,6 +225,7 @@ begin
    FXMLDoc.appendChild(pi);
 
    FTestResultsElement := FXMLDoc.createElement('test-results');
+   FTestResultsElement.setAttribute('name',ExtractFileName(ParamStr(0)));
    FXMLDoc.appendChild(FTestResultsElement);
    FSuiteDataStack := TList.Create;
 end;
@@ -258,7 +259,7 @@ begin
   if FCurrentTestElement <> nil then
   begin
     FCurrentTestElement.setAttribute('success','True');
-    FCurrentTestElement.setAttribute('result','Success  ');
+    FCurrentTestElement.setAttribute('result','Success');
 
     FCurrentTestElement.setAttribute('time',FormatNUnitTime(test.ElapsedTestTime / 1000));
     if FMessageList.Count > 0 then
@@ -325,10 +326,11 @@ begin
   if Supports(test,ITestSuite) then
     exit;
 
-
   FCurrentTestElement := FXMLDoc.createElement('test-case');
   FCurrentTestElement.setAttribute('name',test.Name);
   FCurrentTestElement.setAttribute('executed','True');
+  FCurrentTestElement.setAttribute('success','True');
+  FCurrentTestElement.setAttribute('result','Success');
   CurrentResultsElement.appendChild(FCurrentTestElement);
 end;
 
