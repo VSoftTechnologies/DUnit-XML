@@ -4,3 +4,4 @@ __history/**
 *.local
 *.identcache
 __history
+**.dsk
