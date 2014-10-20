@@ -5,3 +5,4 @@ __history/**
 *.identcache
 __history
 **.dsk
+**.~*
