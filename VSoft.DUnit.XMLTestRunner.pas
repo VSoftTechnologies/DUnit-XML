@@ -331,6 +331,7 @@ begin
   FCurrentTestElement.setAttribute('executed','True');
   FCurrentTestElement.setAttribute('success','True');
   FCurrentTestElement.setAttribute('result','Success');
+  FCurrentTestElement.setAttribute('time','0');
   CurrentResultsElement.appendChild(FCurrentTestElement);
 end;
 
