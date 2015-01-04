@@ -207,6 +207,8 @@ end;
 constructor TXMLTestListener.Create(outputFile : String);
 var
   pi : IXMLDOMProcessingInstruction;
+  environmentElement : IXMLDOMElement;
+  cultureElement : IXMLDOMElement;
 begin
    inherited Create;
    {$IFDEF FORMATSETTINGS}
@@ -227,6 +229,23 @@ begin
    FTestResultsElement := FXMLDoc.createElement('test-results');
    FTestResultsElement.setAttribute('name',ExtractFileName(ParamStr(0)));
    FXMLDoc.appendChild(FTestResultsElement);
+
+   environmentElement := FXMLDoc.createElement('environment');
+   environmentElement.setAttribute('nunit-version','2.6.4');
+   environmentElement.setAttribute('clr-version','');
+   environmentElement.setAttribute('os-version','');
+   environmentElement.setAttribute('platform','');
+   environmentElement.setAttribute('cwd','');
+   environmentElement.setAttribute('machine-name','');
+   environmentElement.setAttribute('user','');
+   environmentElement.setAttribute('user-domain','');
+   FTestResultsElement.appendChild(environmentElement);
+
+   cultureElement := FXMLDoc.createElement('culture-info');
+   cultureElement.setAttribute('current-culture','');
+   cultureElement.setAttribute('current-uiculture','');
+   FTestResultsElement.appendChild(cultureElement);
+
    FSuiteDataStack := TList.Create;
 end;
 
@@ -280,6 +299,7 @@ end;
 procedure TXMLTestListener.AddError(error: TTestFailure);
 var
   msgElement : IXMLDOMElement;
+  stacktraceElement : IXMLDOMElement;
   failureElement : IXMLDOMElement;
   cData : IXMLDOMCDATASection;
 begin
@@ -292,6 +312,11 @@ begin
     FCurrentTestElement.appendChild(failureElement);
     msgElement := FXMLDoc.createElement('message');
     failureElement.appendChild(msgElement);
+
+    stacktraceElement := FXMLDoc.createElement('stack-trace');
+    stacktraceElement.text := error.StackTrace;
+    failureElement.appendChild(stacktraceElement);
+
     cData := FXMLDoc.createCDATASection(EscapeForXML(error.ThrownExceptionMessage,false));
     msgElement.appendChild(cData);
   end;
@@ -301,6 +326,7 @@ end;
 procedure TXMLTestListener.AddFailure(failure: TTestFailure);
 var
   msgElement : IXMLDOMElement;
+  stacktraceElement : IXMLDOMElement;
   failureElement : IXMLDOMElement;
   cData : IXMLDOMCDATASection;
 begin
@@ -313,6 +339,11 @@ begin
     FCurrentTestElement.appendChild(failureElement);
     msgElement := FXMLDoc.createElement('message');
     failureElement.appendChild(msgElement);
+
+    stacktraceElement := FXMLDoc.createElement('stack-trace');
+    stacktraceElement.text := failure.StackTrace;
+    failureElement.appendChild(stacktraceElement);
+
     cData := FXMLDoc.createCDATASection(EscapeForXML(failure.ThrownExceptionMessage,false));
     msgElement.appendChild(cData);
   end;
@@ -393,8 +424,11 @@ begin
   FTestResultsElement.setAttribute('not-run',IntToStr(RegisteredTests.CountTestCases - RegisteredTests.CountEnabledTestCases));
   FTestResultsElement.setAttribute('errors',IntToStr(testResult.errorCount));
   FTestResultsElement.setAttribute('failures',IntToStr(testResult.FailureCount));
+  FTestResultsElement.setAttribute('inconclusive','0');
+  FTestResultsElement.setAttribute('skipped','0');
+  FTestResultsElement.setAttribute('invalid','0');
+  FTestResultsElement.setAttribute('ignored','0');
   FTestResultsElement.setAttribute('date',DateToStr(Now));
-
   FTestResultsElement.setAttribute('time',FormatNUnitTime(testResult.TotalTime / 1000));
 
   if ExtractFilePath(FFileName) = '' then
@@ -495,6 +529,7 @@ begin
     suiteElement := FXMLDoc.createElement('test-suite');
     suiteElement.setAttribute('type','Assembly');
     suiteElement.setAttribute('name',suite.Name);
+    suiteElement.setAttribute('executed','True');
 {    suiteElement.setAttribute('result','Success');
     suiteElement.setAttribute('success','True');
     suiteElement.setAttribute('time','0');}
@@ -520,6 +555,7 @@ begin
       suiteElement := FXMLDoc.createElement('test-suite');
       suiteElement.setAttribute('type','Namespace');
       suiteElement.setAttribute('name',sNameSpace);
+      suiteElement.setAttribute('executed','True');
       CurrentResultsElement.appendChild(suiteElement);
       resultsElement := FXMLDoc.createElement('results');
       suiteElement.appendChild(resultsElement);
@@ -530,6 +566,7 @@ begin
   suiteElement := FXMLDoc.createElement('test-suite');
   suiteElement.setAttribute('type',sType);
   suiteElement.setAttribute('name',suite.Name);
+  suiteElement.setAttribute('executed','True');
   CurrentResultsElement.appendChild(suiteElement);
   resultsElement := FXMLDoc.createElement('results');
   suiteElement.appendChild(resultsElement);
