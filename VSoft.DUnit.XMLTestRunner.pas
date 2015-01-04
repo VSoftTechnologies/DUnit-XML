@@ -315,7 +315,7 @@ begin
 
     stacktraceElement := FXMLDoc.createElement('stack-trace');
     stacktraceElement.text := error.StackTrace;
-    stacktraceElement.appendChild(failureElement);
+    failureElement.appendChild(stacktraceElement);
 
     cData := FXMLDoc.createCDATASection(EscapeForXML(error.ThrownExceptionMessage,false));
     msgElement.appendChild(cData);
@@ -342,7 +342,7 @@ begin
 
     stacktraceElement := FXMLDoc.createElement('stack-trace');
     stacktraceElement.text := failure.StackTrace;
-    stacktraceElement.appendChild(failureElement);
+    failureElement.appendChild(stacktraceElement);
 
     cData := FXMLDoc.createCDATASection(EscapeForXML(failure.ThrownExceptionMessage,false));
     msgElement.appendChild(cData);
