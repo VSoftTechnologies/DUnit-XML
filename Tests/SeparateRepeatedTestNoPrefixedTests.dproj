@@ -1,8 +1,8 @@
 ﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<PropertyGroup>
-			<ProjectGuid>{7D6A49D6-73FF-4155-A4FD-2A6A754CE4EB}</ProjectGuid>
+			<ProjectGuid>{70ED2953-6247-4E41-B310-03DB12868BE4}</ProjectGuid>
 			<ProjectVersion>12.0</ProjectVersion>
-			<MainSource>MixRepeatedTestWithTestSuitePrefixedTests.dpr</MainSource>
+			<MainSource>SeparateRepeatedTestNoPrefixedTests.dpr</MainSource>
 			<Config Condition="'$(Config)'==''">Debug</Config>
 			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
 		</PropertyGroup>
@@ -30,7 +30,7 @@
 			<DCC_E>false</DCC_E>
 			<DCC_Platform>x86</DCC_Platform>
 			<DCC_N>false</DCC_N>
-			<DCC_DependencyCheckOutputName>Debug\MixRepeatedTestWithTestSuitePrefixedTests.exe</DCC_DependencyCheckOutputName>
+			<DCC_DependencyCheckOutputName>Debug\SeparateRepeatedTestNoPrefixedTests.exe</DCC_DependencyCheckOutputName>
 			<DCC_ImageBase>00400000</DCC_ImageBase>
 			<DCC_S>false</DCC_S>
 		</PropertyGroup>
@@ -44,7 +44,7 @@
 			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
 		</PropertyGroup>
 		<ItemGroup>
-			<DelphiCompile Include="MixRepeatedTestWithTestSuitePrefixedTests.dpr">
+			<DelphiCompile Include="SeparateRepeatedTestNoPrefixedTests.dpr">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
 			<DCCReference Include="FailingTestCase.pas"/>
@@ -73,7 +73,7 @@
 			<BorlandProject>
 				<Delphi.Personality>
 					<Source>
-						<Source Name="MainSource">MixRepeatedTestWithTestSuitePrefixedTests.dpr</Source>
+						<Source Name="MainSource">SeparateRepeatedTestNoPrefixedTests.dpr</Source>
 					</Source>
 					<Parameters>
 						<Parameters Name="UseLauncher">False</Parameters>

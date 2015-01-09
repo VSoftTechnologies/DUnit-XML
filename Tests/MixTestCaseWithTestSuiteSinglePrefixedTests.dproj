@@ -2,7 +2,7 @@
 		<PropertyGroup>
 			<ProjectGuid>{2C515B8A-CEB2-4F52-A330-3B237CE6BF56}</ProjectGuid>
 			<ProjectVersion>12.0</ProjectVersion>
-			<MainSource>MixTestCaseWithTestSuitePrefixedTests.dpr</MainSource>
+			<MainSource>MixTestCaseWithTestSuiteSinglePrefixedTests.dpr</MainSource>
 			<Config Condition="'$(Config)'==''">Debug</Config>
 			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
 		</PropertyGroup>
@@ -30,7 +30,7 @@
 			<DCC_E>false</DCC_E>
 			<DCC_Platform>x86</DCC_Platform>
 			<DCC_N>false</DCC_N>
-			<DCC_DependencyCheckOutputName>Debug\MixTestCaseWithTestSuitePrefixedTests.exe</DCC_DependencyCheckOutputName>
+			<DCC_DependencyCheckOutputName>Debug\MixTestCaseWithTestSuiteSinglePrefixedTests.exe</DCC_DependencyCheckOutputName>
 			<DCC_ImageBase>00400000</DCC_ImageBase>
 			<DCC_S>false</DCC_S>
 		</PropertyGroup>
@@ -44,7 +44,7 @@
 			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
 		</PropertyGroup>
 		<ItemGroup>
-			<DelphiCompile Include="MixTestCaseWithTestSuitePrefixedTests.dpr">
+			<DelphiCompile Include="MixTestCaseWithTestSuiteSinglePrefixedTests.dpr">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
 			<DCCReference Include="FailingTestCase.pas"/>
@@ -73,7 +73,7 @@
 			<BorlandProject>
 				<Delphi.Personality>
 					<Source>
-						<Source Name="MainSource">MixTestCaseWithTestSuitePrefixedTests.dpr</Source>
+						<Source Name="MainSource">MixTestCaseWithTestSuiteSinglePrefixedTests.dpr</Source>
 					</Source>
 					<Parameters>
 						<Parameters Name="UseLauncher">False</Parameters>

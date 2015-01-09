@@ -1,4 +1,4 @@
-program MixRepeatedTestWithTestSuitePrefixedTests;
+program MixTestCaseWithTestSuiteNoPrefixedTests;
 
 {$APPTYPE CONSOLE}
 
@@ -14,9 +14,9 @@ uses
   TestFramework;
 
 begin
-  RegisterTests('MixRepeatedTestWithTestSuitePrefix', [
-    TRepeatedTest.Create(TSucceedingTestCase.Suite, 3),
+  RegisterTests('', [
+    TSucceedingTestCase.Create('SucceedingTest'),
     TFailingTestCase.Suite
   ]);
-  RunXmlOutputTestsCatchedOnConsole('MixRepeatedTestWithTestSuitePrefixedTests.xml');
+  RunXmlOutputTestsCatchedOnConsole('MixTestCaseWithTestSuiteNoPrefixedTests.xml');
 end.
