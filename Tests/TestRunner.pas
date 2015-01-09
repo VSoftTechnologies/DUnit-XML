@@ -43,10 +43,18 @@ uses
   {$ENDIF}
 {$ENDIF CONSOLE_TESTRUNNER}
 
+function IsRunningUnderDelphiDebugger: Boolean;
+begin
+{$WARN SYMBOL_PLATFORM OFF}
+  // prevent [DCC Warning] ....pas(52): W1002 Symbol 'DebugHook' is specific to a platform
+  Result := (DebugHook <> 0) { running as part of Delphi? }
+{$WARN SYMBOL_PLATFORM OFF}
+end;
+
 procedure WaitForEnterWhenDebugHook;
 begin
 {$IFDEF DEBUG}
-  if DebugHook <> 0 then
+  if IsRunningUnderDelphiDebugger() then
   begin
     Write('Press <Enter>');
     Readln;

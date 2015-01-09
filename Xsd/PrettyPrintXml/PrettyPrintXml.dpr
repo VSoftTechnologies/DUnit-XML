@@ -40,6 +40,14 @@ begin
   end;
 end;
 
+function IsRunningUnderDelphiDebugger: Boolean;
+begin
+{$WARN SYMBOL_PLATFORM OFF}
+  // prevent [DCC Warning] ....pas(52): W1002 Symbol 'DebugHook' is specific to a platform
+  Result := (DebugHook <> 0) { running as part of Delphi? }
+{$WARN SYMBOL_PLATFORM ON}
+end;
+
 begin
   try
     try
@@ -50,8 +58,11 @@ begin
     end;
   finally
 {$ifdef DEBUG}
-    Write('Press <Enter>');
-    Readln;
+    if IsRunningUnderDelphiDebugger then
+    begin
+      Write('Press <Enter>');
+      Readln;
+    end;
 {$endif DEBUG}
   end;
 end.

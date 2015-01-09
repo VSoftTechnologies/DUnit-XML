@@ -1,9 +1,9 @@
 :begin
   setlocal
   if []==[%*] goto :noXml
-  set xsd="%~dp0www.nunit.org\docs\2.6.4\files\Results.xsd"
+  set xsd="%~dp0NUnitXsd\www.nunit.org\docs\2.6.4\files\Results.xsd"
   if not exist %xsd% goto :noXsd
-  set validator="%~dp0..\ValidateXmlWithXsd\Debug\Win32\ValidateXmlWithXsd.exe"
+  set validator="%~dp0ValidateXmlWithXsd\Debug\Win32\ValidateXmlWithXsd.exe"
   if not exist %validator% goto :noValidator
   %validator% %1 %xsd%
   goto :exit
