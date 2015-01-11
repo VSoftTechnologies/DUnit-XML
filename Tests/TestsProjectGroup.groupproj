@@ -1,0 +1,216 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{D84B3263-5557-485B-81A5-F04917B6548B}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\Xsd\ValidateXmlWithXsd\ValidateXmlWithXsd.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Xsd\PrettyPrintXml\PrettyPrintXml.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="NoTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="UnprefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="PrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DoublePrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="TriplePrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MixTestCaseWithTestSuiteDoublePrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MixTestCaseWithTestSuiteSinglePrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MixTestCaseWithTestSuiteNoPrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MixRepeatedTestWithTestSuiteDoublePrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MixRepeatedTestWithTestSuiteSinglePrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MixRepeatedTestWithTestSuiteNoPrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="SeparateRepeatedTestDoublePrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="SeparateRepeatedTestSinglePrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="SeparateRepeatedTestNoPrefixedTests.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="ValidateXmlWithXsd">
+			<MSBuild Projects="..\Xsd\ValidateXmlWithXsd\ValidateXmlWithXsd.dproj"/>
+		</Target>
+		<Target Name="ValidateXmlWithXsd:Clean">
+			<MSBuild Targets="Clean" Projects="..\Xsd\ValidateXmlWithXsd\ValidateXmlWithXsd.dproj"/>
+		</Target>
+		<Target Name="ValidateXmlWithXsd:Make">
+			<MSBuild Targets="Make" Projects="..\Xsd\ValidateXmlWithXsd\ValidateXmlWithXsd.dproj"/>
+		</Target>
+		<Target Name="PrettyPrintXml">
+			<MSBuild Projects="..\Xsd\PrettyPrintXml\PrettyPrintXml.dproj"/>
+		</Target>
+		<Target Name="PrettyPrintXml:Clean">
+			<MSBuild Targets="Clean" Projects="..\Xsd\PrettyPrintXml\PrettyPrintXml.dproj"/>
+		</Target>
+		<Target Name="PrettyPrintXml:Make">
+			<MSBuild Targets="Make" Projects="..\Xsd\PrettyPrintXml\PrettyPrintXml.dproj"/>
+		</Target>
+		<Target Name="NoTests">
+			<MSBuild Projects="NoTests.dproj"/>
+		</Target>
+		<Target Name="NoTests:Clean">
+			<MSBuild Targets="Clean" Projects="NoTests.dproj"/>
+		</Target>
+		<Target Name="NoTests:Make">
+			<MSBuild Targets="Make" Projects="NoTests.dproj"/>
+		</Target>
+		<Target Name="UnprefixedTests">
+			<MSBuild Projects="UnprefixedTests.dproj"/>
+		</Target>
+		<Target Name="UnprefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="UnprefixedTests.dproj"/>
+		</Target>
+		<Target Name="UnprefixedTests:Make">
+			<MSBuild Targets="Make" Projects="UnprefixedTests.dproj"/>
+		</Target>
+		<Target Name="PrefixedTests">
+			<MSBuild Projects="PrefixedTests.dproj"/>
+		</Target>
+		<Target Name="PrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="PrefixedTests.dproj"/>
+		</Target>
+		<Target Name="PrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="PrefixedTests.dproj"/>
+		</Target>
+		<Target Name="DoublePrefixedTests">
+			<MSBuild Projects="DoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="DoublePrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="DoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="DoublePrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="DoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="TriplePrefixedTests">
+			<MSBuild Projects="TriplePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="TriplePrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="TriplePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="TriplePrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="TriplePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixTestCaseWithTestSuiteDoublePrefixedTests">
+			<MSBuild Projects="MixTestCaseWithTestSuiteDoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixTestCaseWithTestSuiteDoublePrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="MixTestCaseWithTestSuiteDoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixTestCaseWithTestSuiteDoublePrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="MixTestCaseWithTestSuiteDoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixTestCaseWithTestSuiteSinglePrefixedTests">
+			<MSBuild Projects="MixTestCaseWithTestSuiteSinglePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixTestCaseWithTestSuiteSinglePrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="MixTestCaseWithTestSuiteSinglePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixTestCaseWithTestSuiteSinglePrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="MixTestCaseWithTestSuiteSinglePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixTestCaseWithTestSuiteNoPrefixedTests">
+			<MSBuild Projects="MixTestCaseWithTestSuiteNoPrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixTestCaseWithTestSuiteNoPrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="MixTestCaseWithTestSuiteNoPrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixTestCaseWithTestSuiteNoPrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="MixTestCaseWithTestSuiteNoPrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixRepeatedTestWithTestSuiteDoublePrefixedTests">
+			<MSBuild Projects="MixRepeatedTestWithTestSuiteDoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixRepeatedTestWithTestSuiteDoublePrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="MixRepeatedTestWithTestSuiteDoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixRepeatedTestWithTestSuiteDoublePrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="MixRepeatedTestWithTestSuiteDoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixRepeatedTestWithTestSuiteSinglePrefixedTests">
+			<MSBuild Projects="MixRepeatedTestWithTestSuiteSinglePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixRepeatedTestWithTestSuiteSinglePrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="MixRepeatedTestWithTestSuiteSinglePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixRepeatedTestWithTestSuiteSinglePrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="MixRepeatedTestWithTestSuiteSinglePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixRepeatedTestWithTestSuiteNoPrefixedTests">
+			<MSBuild Projects="MixRepeatedTestWithTestSuiteNoPrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixRepeatedTestWithTestSuiteNoPrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="MixRepeatedTestWithTestSuiteNoPrefixedTests.dproj"/>
+		</Target>
+		<Target Name="MixRepeatedTestWithTestSuiteNoPrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="MixRepeatedTestWithTestSuiteNoPrefixedTests.dproj"/>
+		</Target>
+		<Target Name="SeparateRepeatedTestDoublePrefixedTests">
+			<MSBuild Projects="SeparateRepeatedTestDoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="SeparateRepeatedTestDoublePrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="SeparateRepeatedTestDoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="SeparateRepeatedTestDoublePrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="SeparateRepeatedTestDoublePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="SeparateRepeatedTestSinglePrefixedTests">
+			<MSBuild Projects="SeparateRepeatedTestSinglePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="SeparateRepeatedTestSinglePrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="SeparateRepeatedTestSinglePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="SeparateRepeatedTestSinglePrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="SeparateRepeatedTestSinglePrefixedTests.dproj"/>
+		</Target>
+		<Target Name="SeparateRepeatedTestNoPrefixedTests">
+			<MSBuild Projects="SeparateRepeatedTestNoPrefixedTests.dproj"/>
+		</Target>
+		<Target Name="SeparateRepeatedTestNoPrefixedTests:Clean">
+			<MSBuild Targets="Clean" Projects="SeparateRepeatedTestNoPrefixedTests.dproj"/>
+		</Target>
+		<Target Name="SeparateRepeatedTestNoPrefixedTests:Make">
+			<MSBuild Targets="Make" Projects="SeparateRepeatedTestNoPrefixedTests.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="ValidateXmlWithXsd;PrettyPrintXml;NoTests;UnprefixedTests;PrefixedTests;DoublePrefixedTests;TriplePrefixedTests;MixTestCaseWithTestSuiteDoublePrefixedTests;MixTestCaseWithTestSuiteSinglePrefixedTests;MixTestCaseWithTestSuiteNoPrefixedTests;MixRepeatedTestWithTestSuiteDoublePrefixedTests;MixRepeatedTestWithTestSuiteSinglePrefixedTests;MixRepeatedTestWithTestSuiteNoPrefixedTests;SeparateRepeatedTestDoublePrefixedTests;SeparateRepeatedTestSinglePrefixedTests;SeparateRepeatedTestNoPrefixedTests"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="ValidateXmlWithXsd:Clean;PrettyPrintXml:Clean;NoTests:Clean;UnprefixedTests:Clean;PrefixedTests:Clean;DoublePrefixedTests:Clean;TriplePrefixedTests:Clean;MixTestCaseWithTestSuiteDoublePrefixedTests:Clean;MixTestCaseWithTestSuiteSinglePrefixedTests:Clean;MixTestCaseWithTestSuiteNoPrefixedTests:Clean;MixRepeatedTestWithTestSuiteDoublePrefixedTests:Clean;MixRepeatedTestWithTestSuiteSinglePrefixedTests:Clean;MixRepeatedTestWithTestSuiteNoPrefixedTests:Clean;SeparateRepeatedTestDoublePrefixedTests:Clean;SeparateRepeatedTestSinglePrefixedTests:Clean;SeparateRepeatedTestNoPrefixedTests:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="ValidateXmlWithXsd:Make;PrettyPrintXml:Make;NoTests:Make;UnprefixedTests:Make;PrefixedTests:Make;DoublePrefixedTests:Make;TriplePrefixedTests:Make;MixTestCaseWithTestSuiteDoublePrefixedTests:Make;MixTestCaseWithTestSuiteSinglePrefixedTests:Make;MixTestCaseWithTestSuiteNoPrefixedTests:Make;MixRepeatedTestWithTestSuiteDoublePrefixedTests:Make;MixRepeatedTestWithTestSuiteSinglePrefixedTests:Make;MixRepeatedTestWithTestSuiteNoPrefixedTests:Make;SeparateRepeatedTestDoublePrefixedTests:Make;SeparateRepeatedTestSinglePrefixedTests:Make;SeparateRepeatedTestNoPrefixedTests:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

@@ -79,12 +79,6 @@ type
 
     function CurrentResultsElement : IXMLDOMElement;
   protected
-
-
-
-
-
-
     function  PrintErrors(r: TTestResult): string; virtual;
     function  PrintFailures(r: TTestResult): string; virtual;
     function  PrintHeader(r: TTestResult): string; virtual;
@@ -134,7 +128,8 @@ var
 
 implementation
 
-uses Forms, Windows, ActiveX;
+uses 
+  ActiveX;
 
 const
    CRLF = #13#10;
@@ -381,9 +376,12 @@ begin
   result := Format('%1.3f',[value],FFormatSettings);
 {$ELSE}
   oldDecimalSeparator := SysUtils.DecimalSeparator;
-  SysUtils.DecimalSeparator := '.';
-  result := Format('%1.3f',[value]);
-  SysUtils.DecimalSeparator := oldDecimalSeparator;
+  try
+    SysUtils.DecimalSeparator := '.';
+    result := Format('%1.3f',[value]);
+  finally
+    SysUtils.DecimalSeparator := oldDecimalSeparator;
+  end;
 {$ENDIF}
 end;
 
@@ -416,8 +414,6 @@ begin
       CurrentSuiteElement.setAttribute('result','Success');
       CurrentSuiteElement.setAttribute('success','True');
     end;
-
-
   end;
 
   FTestResultsElement.setAttribute('total',IntToStr(RegisteredTests.CountTestCases));
@@ -446,8 +442,6 @@ begin
     writeln(Report(testResult));
     writeln;
   end;
-
-
 end;
 
 class function TXMLTestListener.RunTest(suite: ITest; outputFile:String): TTestResult;
