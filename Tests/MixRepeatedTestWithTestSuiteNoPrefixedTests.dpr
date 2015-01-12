@@ -11,7 +11,8 @@ uses
   TestUtils in 'TestUtils.pas',
   VSoft.DUnit.XMLTestRunner in '..\VSoft.DUnit.XMLTestRunner.pas',
   VSoft.MSXML6 in '..\VSoft.MSXML6.pas',
-  TestFramework;
+  TestFramework,
+  TestExtensions;
 
 begin
   RegisterTests('', [
